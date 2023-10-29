@@ -1,0 +1,30 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Edit Author</h1>
+
+     {{ form_start(f) }}
+
+    <table class="table" >
+      
+        <tr>
+            <td>{{ form_label(f.username) }}</td>
+            <td>{{ form_widget(f.username) }}</td>
+        </tr>
+         <tr>
+            <td>{{ form_label(f.email) }}</td>
+            <td>{{ form_widget(f.email) }}</td>
+        </tr>
+        
+        <tr>
+            <td>{{ form_label(f.nb_books) }}</td>
+            <td>{{ form_widget(f.nb_books) }}</td>
+        </tr>
+    </table>
+
+    <button type="submit" style="background: darkcyan;color:white;" class="btn btn-primary">Save Changes</button>
+    
+
+    {{ form_end(f) }}
+{% endblock %}

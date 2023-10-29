@@ -1,0 +1,68 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<style>
+    .example-wrapper { margin: 1em auto; text-align: center; }
+    .table{border: 1px solid; }
+</style>
+    
+    <div class="example-wrapper">
+    <h1>Author List</h1>
+    </div>
+
+    <br>
+    <br>
+    <form method="get" >
+    <label for="minnumber">Nombre minimum de livres :</label>
+    <input type="text" name="minnumber" id="minnumber">
+    
+    <label for="maxnumber">Nombre maximum de livres :</label>
+    <input type="text" name="maxnumber" id="maxnumber">
+    
+    <button type="submit">Rechercher</button>
+</form>
+   
+    <table  class="table" width="100%" align="center" >
+        <thead>
+            <tr class="table">
+      <th class="table">ID </th>
+                <th class="table">Username </th>
+                <th class="table">email </th>
+                <th class="table">nb_books</th>
+                
+                <th class="table">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for author in response %}
+                <tr class="table" align="center">
+                    <td class="table">{{author.id}}</td>
+                    <td class="table">{{author.username}}</td>
+                     <td class="table">{{author.email}}</td>
+                    <td class="table">{{author.getNbBooks()}}</td>
+                    
+                    <td class="table">
+                      <button > <a href="{{ path('authoredit_author', {'id': author.id}) }}" class="btn btn-primary">Update</a></button>
+                       <button> <a href="{{ path('authorremove', {'id': author.id}) }}" class="btn btn-danger">Delete</a></button>
+                    </td>
+                </tr>
+            {% endfor %}
+         
+            
+        </tbody>
+    </table>
+     <br>
+    <div class="example-wrapper">
+<button align="center"><a href="{{ path('authoraddF') }}" class="btn btn-success rounded-circle">Add</a></button>
+    </div>
+    
+   
+         
+
+{% endblock %}
+
+
+ 
+     

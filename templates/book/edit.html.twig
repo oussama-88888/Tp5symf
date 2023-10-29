@@ -1,0 +1,41 @@
+{# templates/student/edit.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Edit Book</h1>
+
+     {{ form_start(f) }}
+
+    <table class="table" >
+      
+        <tr>
+            <td>{{ form_label(f.ref) }}</td>
+            <td>{{ form_widget(f.ref) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(f.title) }}</td>
+            <td>{{ form_widget(f.title) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(f.category) }}</td>
+            <td>{{ form_widget(f.category) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(f.PublicationDate) }}</td>
+            <td>{{ form_widget(f.PublicationDate) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(f.published) }}</td>
+            <td>{{ form_widget(f.published) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(f.Author) }}</td>
+            <td>{{ form_widget(f.Author) }}</td>
+        </tr>
+    </table>
+
+    <button type="submit" style="background: darkcyan;color:white;" class="btn btn-primary">Save Changes</button>
+    
+
+    {{ form_end(f) }}
+{% endblock %}

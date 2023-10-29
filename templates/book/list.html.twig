@@ -1,0 +1,71 @@
+
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<style>
+    .example-wrapper { margin: 1em auto; text-align: center; }
+    .table{border: 1px solid; }
+</style>
+    
+    <div class="example-wrapper">
+    <h1>Book List</h1>
+    </div>
+
+    <br>
+    <br>
+    <form method="get">
+    <input type="int" name="ref" placeholder="Rechercher par référence">
+    <button type="submit">Rechercher</button>
+
+    
+    
+</form>
+    
+   
+    <table  class="table" width="100%" align="center" >
+        <thead>
+            <tr class="table">
+             
+                <th class="table">Ref</th>
+                <th class="table">title</th>
+                <th class="table">Category</th>
+                <th class="table" >PublicationDate</th>
+                <th class="table">published</th>
+                <th class="table">id author</th>
+                <th class="table">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in response %}
+                <tr class="table" align="center">
+                       
+                    <td class="table">{{book.ref}}</td>    
+                    <td class="table">{{ book.title }}</td>
+                    <td class="table">{{ book.category }}</td>
+                    <td class="table">{{ book.publicationDate|date('Y-m-d')}}</td>
+                    <td class="table">{{book.published}}</td>
+                    <td class="table">{{book.Author }}</td>
+                    <td class="table">
+                       <button > <a href="{{ path('bookedit_book', {'id': book.ref}) }}" class="btn btn-primary">Update</a></button>
+                       <button> <a href="{{ path('bookremove', {'id': book.ref}) }}" class="btn btn-danger">Delete</a></button>
+                    </td>
+                </tr>
+            {% endfor %}
+            <br>
+            
+        </tbody>
+    </table>
+    
+    <br>
+    <div class="example-wrapper">
+<button align="center"><a href="{{ path('bookaddF') }}" class="btn btn-success rounded-circle">Add</a></button>
+    </div>
+         
+
+{% endblock %}
+
+
+ 
+     
